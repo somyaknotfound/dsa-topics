@@ -1,0 +1,128 @@
+$date
+	Tue Sep 23 01:35:22 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module bcd_to_excess3_tb $end
+$var wire 4 ! excess3 [3:0] $end
+$var reg 4 " bcd [3:0] $end
+$scope module uut $end
+$var wire 4 # bcd [3:0] $end
+$var wire 4 $ excess3 [3:0] $end
+$upscope $end
+$scope begin $ivl_for_loop0 $end
+$var integer 32 % i [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 %
+bx $
+bx #
+bx "
+bx !
+$end
+#10
+b1 %
+b11 !
+b11 $
+b0 "
+b0 #
+#20
+b10 %
+b100 !
+b100 $
+b1 "
+b1 #
+#30
+b11 %
+b101 !
+b101 $
+b10 "
+b10 #
+#40
+b100 %
+b110 !
+b110 $
+b11 "
+b11 #
+#50
+b101 %
+b111 !
+b111 $
+b100 "
+b100 #
+#60
+b110 %
+b1000 !
+b1000 $
+b101 "
+b101 #
+#70
+b111 %
+b1001 !
+b1001 $
+b110 "
+b110 #
+#80
+b1000 %
+b1010 !
+b1010 $
+b111 "
+b111 #
+#90
+b1001 %
+b1011 !
+b1011 $
+b1000 "
+b1000 #
+#100
+b1010 %
+b1100 !
+b1100 $
+b1001 "
+b1001 #
+#110
+b1011 %
+b1101 !
+b1101 $
+b1010 "
+b1010 #
+#120
+b1100 %
+b1110 !
+b1110 $
+b1011 "
+b1011 #
+#130
+b1101 %
+b1111 !
+b1111 $
+b1100 "
+b1100 #
+#140
+b1110 %
+b0 !
+b0 $
+b1101 "
+b1101 #
+#150
+b1111 %
+b1 !
+b1 $
+b1110 "
+b1110 #
+#160
+b10000 %
+b10 !
+b10 $
+b1111 "
+b1111 #

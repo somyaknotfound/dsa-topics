@@ -1,0 +1,66 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002cdaa3ea060 .scope module, "excess3_to_bcd_tb" "excess3_to_bcd_tb" 2 1;
+ .timescale 0 0;
+v000002cdaa3eaee0_0 .net "bcd", 3 0, L_000002cdaa434400;  1 drivers
+v000002cdaa3eaf80_0 .var "excess3", 3 0;
+S_000002cdaa3eacb0 .scope begin, "$ivl_for_loop0" "$ivl_for_loop0" 2 20, 2 20 0, S_000002cdaa3ea060;
+ .timescale 0 0;
+v000002cdaa3e71a0_0 .var/i "i", 31 0;
+S_000002cdaa3ebdb0 .scope module, "uut" "excess3_to_bcd" 2 6, 3 1 0, S_000002cdaa3ea060;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "excess3";
+    .port_info 1 /OUTPUT 4 "bcd";
+L_000002cdaa479848 .functor BUFT 1, C4<0011>, C4<0>, C4<0>, C4<0>;
+v000002cdaa3ea1f0_0 .net/2u *"_ivl_0", 3 0, L_000002cdaa479848;  1 drivers
+v000002cdaa3e94d0_0 .net "bcd", 3 0, L_000002cdaa434400;  alias, 1 drivers
+v000002cdaa3eae40_0 .net "excess3", 3 0, v000002cdaa3eaf80_0;  1 drivers
+L_000002cdaa434400 .arith/sub 4, v000002cdaa3eaf80_0, L_000002cdaa479848;
+    .scope S_000002cdaa3ea060;
+T_0 ;
+    %vpi_call 2 11 "$dumpfile", "excess3_to_bcd.vcd" {0 0 0};
+    %vpi_call 2 12 "$dumpvars", 32'sb00000000000000000000000000000000, S_000002cdaa3ea060 {0 0 0};
+    %vpi_call 2 14 "$display", "------------------------------------------" {0 0 0};
+    %vpi_call 2 15 "$display", "Time | excess3 | BCD" {0 0 0};
+    %vpi_call 2 16 "$display", "------------------------------------------" {0 0 0};
+    %vpi_call 2 18 "$monitor", "%0t | %b | %b", $time, v000002cdaa3eaf80_0, v000002cdaa3eaee0_0 {0 0 0};
+    %fork t_1, S_000002cdaa3eacb0;
+    %jmp t_0;
+    .scope S_000002cdaa3eacb0;
+t_1 ;
+    %pushi/vec4 3, 0, 32;
+    %store/vec4 v000002cdaa3e71a0_0, 0, 32;
+T_0.0 ;
+    %load/vec4 v000002cdaa3e71a0_0;
+    %cmpi/s 12, 0, 32;
+    %flag_or 5, 4;
+    %jmp/0xz T_0.1, 5;
+    %delay 10, 0;
+    %load/vec4 v000002cdaa3e71a0_0;
+    %pad/s 4;
+    %store/vec4 v000002cdaa3eaf80_0, 0, 4;
+    %load/vec4 v000002cdaa3e71a0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000002cdaa3e71a0_0, 0, 32;
+    %jmp T_0.0;
+T_0.1 ;
+    %end;
+    .scope S_000002cdaa3ea060;
+t_0 %join;
+    %vpi_call 2 26 "$display", "------------------------------------------" {0 0 0};
+    %vpi_call 2 27 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "xs3tobcd_tb.v";
+    "xs3tobcd.v";

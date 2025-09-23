@@ -1,0 +1,103 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000022dd1d294a0 .scope module, "test_bench_gates" "test_bench_gates" 2 8;
+ .timescale -9 -12;
+v0000022dd1d26ce0_0 .var "a", 0 0;
+v0000022dd1d27280_0 .net "and_out", 0 0, L_0000022dd1d24890;  1 drivers
+v0000022dd1d273c0_0 .var "b", 0 0;
+v0000022dd1d26560_0 .net "nand_out", 0 0, L_0000022dd1d249e0;  1 drivers
+v0000022dd1d26d80_0 .net "nor_out", 0 0, L_0000022dd1d24a50;  1 drivers
+v0000022dd1d26920_0 .net "not_out", 0 0, L_0000022dd1d246d0;  1 drivers
+v0000022dd1d26600_0 .net "or_out", 0 0, L_0000022dd1d24cf0;  1 drivers
+v0000022dd1d269c0_0 .net "xnor_out", 0 0, L_0000022dd1d24660;  1 drivers
+v0000022dd1d26e20_0 .net "xor_nand_out", 0 0, L_0000022dd1d8e250;  1 drivers
+v0000022dd1d8c690_0 .net "xor_out", 0 0, L_0000022dd1d24ac0;  1 drivers
+S_0000022dd1d368a0 .scope module, "UUT1" "basic_gates" 2 20, 3 1 0, S_0000022dd1d294a0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "and_out";
+    .port_info 3 /OUTPUT 1 "or_out";
+    .port_info 4 /OUTPUT 1 "not_out";
+    .port_info 5 /OUTPUT 1 "nand_out";
+    .port_info 6 /OUTPUT 1 "nor_out";
+    .port_info 7 /OUTPUT 1 "xor_out";
+    .port_info 8 /OUTPUT 1 "xnor_out";
+L_0000022dd1d24890 .functor AND 1, v0000022dd1d26ce0_0, v0000022dd1d273c0_0, C4<1>, C4<1>;
+L_0000022dd1d24cf0 .functor OR 1, v0000022dd1d26ce0_0, v0000022dd1d273c0_0, C4<0>, C4<0>;
+L_0000022dd1d246d0 .functor NOT 1, v0000022dd1d26ce0_0, C4<0>, C4<0>, C4<0>;
+L_0000022dd1d249e0 .functor NAND 1, v0000022dd1d26ce0_0, v0000022dd1d273c0_0, C4<1>, C4<1>;
+L_0000022dd1d24a50 .functor NOR 1, v0000022dd1d26ce0_0, v0000022dd1d273c0_0, C4<0>, C4<0>;
+L_0000022dd1d24ac0 .functor XOR 1, v0000022dd1d26ce0_0, v0000022dd1d273c0_0, C4<0>, C4<0>;
+L_0000022dd1d24660 .functor XNOR 1, v0000022dd1d26ce0_0, v0000022dd1d273c0_0, C4<0>, C4<0>;
+v0000022dd1d264c0_0 .net "a", 0 0, v0000022dd1d26ce0_0;  1 drivers
+v0000022dd1d26a60_0 .net "and_out", 0 0, L_0000022dd1d24890;  alias, 1 drivers
+v0000022dd1d26b00_0 .net "b", 0 0, v0000022dd1d273c0_0;  1 drivers
+v0000022dd1d26f60_0 .net "nand_out", 0 0, L_0000022dd1d249e0;  alias, 1 drivers
+v0000022dd1d26ec0_0 .net "nor_out", 0 0, L_0000022dd1d24a50;  alias, 1 drivers
+v0000022dd1d267e0_0 .net "not_out", 0 0, L_0000022dd1d246d0;  alias, 1 drivers
+v0000022dd1d27320_0 .net "or_out", 0 0, L_0000022dd1d24cf0;  alias, 1 drivers
+v0000022dd1d26c40_0 .net "xnor_out", 0 0, L_0000022dd1d24660;  alias, 1 drivers
+v0000022dd1d27000_0 .net "xor_out", 0 0, L_0000022dd1d24ac0;  alias, 1 drivers
+S_0000022dd1d301c0 .scope module, "UUT2" "xor_using_nand" 2 32, 3 18 0, S_0000022dd1d294a0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "y";
+L_0000022dd1d24d60 .functor NAND 1, v0000022dd1d26ce0_0, v0000022dd1d273c0_0, C4<1>, C4<1>;
+L_0000022dd1d24b30 .functor NAND 1, v0000022dd1d26ce0_0, L_0000022dd1d24d60, C4<1>, C4<1>;
+L_0000022dd1d24c80 .functor NAND 1, v0000022dd1d273c0_0, L_0000022dd1d24d60, C4<1>, C4<1>;
+RS_0000022dd1d3e348 .resolv tri, L_0000022dd1d24b30, L_0000022dd1d24c80;
+o0000022dd1d3e378 .functor BUFZ 1, C4<z>; HiZ drive
+L_0000022dd1d8e250 .functor NAND 1, RS_0000022dd1d3e348, o0000022dd1d3e378, C4<1>, C4<1>;
+v0000022dd1d26740_0 .net "a", 0 0, v0000022dd1d26ce0_0;  alias, 1 drivers
+v0000022dd1d26880_0 .net "b", 0 0, v0000022dd1d273c0_0;  alias, 1 drivers
+v0000022dd1d271e0_0 .net "nand_out1", 0 0, L_0000022dd1d24d60;  1 drivers
+v0000022dd1d270a0_0 .net8 "nand_out2", 0 0, RS_0000022dd1d3e348;  2 drivers
+v0000022dd1d27140_0 .net "nand_out3", 0 0, o0000022dd1d3e378;  0 drivers
+v0000022dd1d266a0_0 .net "y", 0 0, L_0000022dd1d8e250;  alias, 1 drivers
+    .scope S_0000022dd1d294a0;
+T_0 ;
+    %vpi_call 2 41 "$dumpfile", "gates_tb.vcd" {0 0 0};
+    %vpi_call 2 42 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000022dd1d294a0 {0 0 0};
+    %vpi_call 2 45 "$display", "---------------------------------------------------------------------------------------------------------------------------------------------------" {0 0 0};
+    %vpi_call 2 46 "$display", "Time | a | b | and_out | or_out | not_out | nand_out | nor_out | xor_out | xnor_out | xor_nand_out" {0 0 0};
+    %vpi_call 2 47 "$display", "---------------------------------------------------------------------------------------------------------------------------------------------------" {0 0 0};
+    %vpi_call 2 50 "$monitor", "%0t | %b | %b |    %b    |   %b    |    %b    |    %b     |    %b    |    %b    |     %b    |      %b", $time, v0000022dd1d26ce0_0, v0000022dd1d273c0_0, v0000022dd1d27280_0, v0000022dd1d26600_0, v0000022dd1d26920_0, v0000022dd1d26560_0, v0000022dd1d26d80_0, v0000022dd1d8c690_0, v0000022dd1d269c0_0, v0000022dd1d26e20_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000022dd1d26ce0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000022dd1d273c0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000022dd1d26ce0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000022dd1d273c0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000022dd1d26ce0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000022dd1d273c0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000022dd1d26ce0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000022dd1d273c0_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 74 "$display", "---------------------------------------------------------------------------------------------------------------------------------------------------" {0 0 0};
+    %vpi_call 2 75 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "basic_tb.v";
+    "./basic.v";

@@ -1,0 +1,82 @@
+$date
+	Sun Sep 21 18:32:32 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module test_bench_gates $end
+$var wire 1 ! xor_out $end
+$var wire 1 " xor_nand_out $end
+$var wire 1 # xnor_out $end
+$var wire 1 $ or_out $end
+$var wire 1 % not_out $end
+$var wire 1 & nor_out $end
+$var wire 1 ' nand_out $end
+$var wire 1 ( and_out $end
+$var reg 1 ) a $end
+$var reg 1 * b $end
+$scope module UUT1 $end
+$var wire 1 ) a $end
+$var wire 1 ( and_out $end
+$var wire 1 * b $end
+$var wire 1 ' nand_out $end
+$var wire 1 & nor_out $end
+$var wire 1 % not_out $end
+$var wire 1 $ or_out $end
+$var wire 1 # xnor_out $end
+$var wire 1 ! xor_out $end
+$upscope $end
+$scope module UUT2 $end
+$var wire 1 ) a $end
+$var wire 1 * b $end
+$var wire 1 + nand_out1 $end
+$var wire 1 , nand_out2 $end
+$var wire 1 - nand_out3 $end
+$var wire 1 " y $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+z-
+1,
+1+
+0*
+0)
+0(
+1'
+1&
+1%
+0$
+1#
+x"
+0!
+$end
+#10000
+1$
+0&
+1!
+0#
+x,
+1*
+#20000
+0%
+x,
+0*
+1)
+#30000
+x"
+1(
+0'
+0!
+1#
+0+
+1,
+1*
+#40000
