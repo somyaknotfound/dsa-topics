@@ -20,12 +20,16 @@ class Solution {
                     int len = i - pfs[rem];
                     Maxlen = max(Maxlen,len);
                 }
+
+                
+                if (pfs.find(sum) == pfs.end()) {
                 pfs[sum] = i;
+            }
             }
             
             return Maxlen;
         }
-        
+        // only positives 
         int SlidingWindowsApproach(vector <int> a , int k) {
             int n = a.size();
             int Maxlen = 0;
