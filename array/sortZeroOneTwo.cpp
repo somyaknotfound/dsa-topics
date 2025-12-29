@@ -36,6 +36,15 @@ class Solution {
             }
             
         }
+    void DutchNationalFlagAlgorithm(vector <int> &a) {
+            int low = 0;
+            int mid = 0;
+            int high = a.size()-1
+            
+            while (mid < high) {
+                
+            }
+        }
 };
 
 int main() {
