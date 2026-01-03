@@ -14,6 +14,7 @@ class Solution {
             
             if (index == -1) {
                 reverse(a.begin() , a.end());
+                return;
             }
             
             for (int i = a.size()-1; i>index ; i++) {
