@@ -29,6 +29,48 @@ public:
         }
         return maxVal;
     }
+
+
+    class Solution {
+public:
+
+    long long calculateTotalHours(vector<int>& nums, long long speed) {
+        long totalH = 0;
+
+        for (long bananas : nums) {
+            totalH += (bananas + speed - 1) / speed;
+        }
+
+        return totalH;
+    }
+
+    long long minimumRateToEatBananas(vector<int>& nums, long long h) {
+
+        long long low = 1;
+        long long high = *max_element(nums.begin(), nums.end());
+
+        long long ans = high;
+
+        while (low <= high) {
+
+            long long mid = low + (high - low) / 2;
+
+            long long totalH = calculateTotalHours(nums, mid);
+
+            if (totalH <= h) {
+                ans = mid;
+                high = mid - 1;
+            }
+            else {
+                low = mid + 1;
+            }
+        }
+
+        return ans;
+    }
+};
+
+    
 };
 
 int main() {
