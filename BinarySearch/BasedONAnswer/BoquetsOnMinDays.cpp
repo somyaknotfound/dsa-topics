@@ -41,6 +41,36 @@ class Solution {
             return -1;
             
         }
+
+
+        int Optimized(vector <int> &bloomDays , int m , int k) {
+            long long total = 1LL * m * k ;
+            
+            if (total > bloomDays.size()) return -1;
+            
+            int mini = *min_element(bloomDays.begin() , bloomDays.end());
+            int maxi = *max_element(bloomDays.begin() , bloomDays.end());
+            
+            
+            int low = mini;
+            int high = maxi;
+            
+            int ans = -1;
+            
+            while (low <= high) {
+                int mid = (low + high) /2;
+                
+                
+                if (isPossible(bloomDays , mid ,m , k) )  {
+                    ans = mid;
+                    high = mid -1;
+                } else {
+                    low = mid+1;
+                }
+            }
+            
+            return ans;
+        }
 };
 
 
