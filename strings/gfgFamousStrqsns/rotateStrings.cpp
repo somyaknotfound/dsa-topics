@@ -5,6 +5,22 @@ using namespace std;
 class Solution {
 public:
 
+	 bool rotateStringOptimal(string s, string goal) {
+        
+        if (s.size() != goal.size()) {
+            return false;
+        }
+
+        string doubleS = s + s;
+
+        return doubleS.find(goal) != string::npos;
+
+       
+
+
+    }
+
+
 	/*
     adarsh method
     
