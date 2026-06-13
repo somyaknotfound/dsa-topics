@@ -23,6 +23,45 @@ void subSeqSumK(vector <int> &ds , int ind , int arr[] ,int n , int varsum , int
 
 
 
+bool OnesubSeqSumK(vector <int> &ds , int ind , int arr[] ,int n , int varsum , int target) {
+    if (ind == n) {
+        if (varsum == target) {
+            for (int it : ds) 
+                cout << it << " ";
+            
+            cout << endl;
+            return true;
+        } 
+        return false;
+    }
+    
+    ds.push_back(arr[ind]);
+    varsum+=arr[ind];
+    
+    
+    if (OnesubSeqSumK(ds,ind+1,arr,n,varsum,target)) {
+        return true;
+    }
+    
+    ds.pop_back();
+    varsum -= arr[ind];
+    
+    
+    
+    if (OnesubSeqSumK(ds,ind+1,arr,n,varsum,target)) {
+        return true;
+    };
+    
+    return false;
+}
+
+
+
+
+
+
+
+
 
 
 
