@@ -21,6 +21,46 @@ void solve(string ip , string op) {
 }
 
 
+class Solution {
+  public:
+  
+  
+    void Perm(string sip , string sop , vector <string> &ans) {
+        if (sip.length() == 0) {
+            ans.push_back(sop);
+            return;
+        }
+        
+        string op1 = sop;
+        string op2 = sop;
+        
+        op1.push_back(' ');
+        op1.push_back(sip[0]);
+        op2.push_back(sip[0]);
+        sip.erase(sip.begin() + 0);
+        
+        Perm(sip , op1 , ans);
+        Perm(sip , op2 , ans);
+        
+        
+    }
+
+    vector<string> permutation(string s) {
+        // Code Here
+        string sip = s;
+        string sop = "";
+        sop.push_back(sip[0]);
+        sip.erase(sip.begin() +0);
+        
+        vector <string> ans;
+        
+        Perm(sip,sop,ans);
+        
+        return ans;
+        
+    }
+};
+
 
 
 int main() {
