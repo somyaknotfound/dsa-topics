@@ -1,3 +1,134 @@
+class Solution {
+
+private:
+
+vector <int> findNGE(vector <int> &v) {
+    int n = v.size();
+    stack <int> st;
+    vector <int> ans(n);
+
+    for (int i = n -1 ; i >= 0 ; i--) {
+        int curEl = v[i];
+
+        while (!st.empty() && v[st.top()] <= curEl ) {
+            st.pop();
+        }
+
+        ans[i] = st.empty() ? n : st.top();
+
+        st.push(i);
+    }
+
+    return ans;
+}
+vector <int> findPSEE(vector <int> &v) {
+    int n = v.size();
+    stack <int> st;
+    vector <int> ans(n);
+
+    for (int i = 0 ; i < n ; i++) {
+        int curEl = v[i];
+
+        while (!st.empty() && v[st.top()] > curEl ) {
+            st.pop();
+        }
+
+        ans[i] = st.empty() ? -1 : st.top();
+
+        st.push(i);
+    }
+
+    return ans;
+}
+vector <int> findNSE(vector <int> &v) {
+    int n = v.size();
+    stack <int> st;
+    vector <int> ans(n);
+
+    for (int i = n -1 ; i >= 0 ; i--) {
+        int curEl = v[i];
+
+        while (!st.empty() && v[st.top()] >= curEl ) {
+            st.pop();
+        }
+
+        ans[i] = st.empty() ? n : st.top();
+
+        st.push(i);
+    }
+
+    return ans;
+}
+vector <int> findPGEE(vector <int> &v) {
+    int n = v.size();
+    stack <int> st;
+    vector <int> ans(n);
+
+    for (int i = 0 ; i < n ; i++) {
+        int curEl = v[i];
+
+        while (!st.empty() && v[st.top()] < curEl ) {
+            st.pop();
+        }
+
+        ans[i] = st.empty() ? -1 : st.top();
+
+        st.push(i);
+    }
+
+    return ans;
+}
+
+    
+
+
+long long subMax(vector <int> &v) {
+    int n =v.size();
+    vector <int> nge = findNGE(v);
+    vector <int> pgee = findPGEE(v);
+    long long sum = 0;
+
+    for (int i = 0 ; i < n ; i++) {
+        int left = i - pgee[i];
+        int right = nge[i] - i;
+
+        long long freq = 1LL * left * right;
+        long long val = freq * v[i];
+        sum += val;
+    }
+
+    return sum;
+}
+
+long long subMin(vector <int> &v) {
+    int n =v.size();
+    vector <int> nse = findNSE(v);
+    vector<int> psee = findPSEE(v);
+    long long sum = 0;
+
+    for (int i = 0 ; i < n ; i++) {
+        int left = i - psee[i];
+        int right = nse[i] - i;
+
+        long long freq = 1LL * left * right;
+        long long val = freq * v[i];
+        sum += val;
+    }
+
+    return sum;
+}
+
+
+public:
+    long long subArrayRanges(vector<int>& nums) {
+        return (subMax(nums) - subMin(nums));
+    }
+};
+
+
+
+
+
 Here's a concise checklist of the mistakes you made while implementing Sum of Subarray Ranges:
 
 Monotonic Stack Checklist
