@@ -1,4 +1,4 @@
-#include <bits/stc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 const int N = 1e3+10;
@@ -6,7 +6,7 @@ const int INF= 1e9+10;
 
 int val [N][N];
 int vis[N][N];
-int lev[N][N;
+int lev[N][N];
 int n,m;
 
 vector <pair<int,int>> movements = {
@@ -41,6 +41,8 @@ int bfs() {
         }
     }
     
+    int ans = 0;
+    
     while(!q.empty()) {
         auto it = q.front();
         int v_x = it.first;
@@ -55,13 +57,13 @@ int bfs() {
                 lev[child_x][child_y] = 1 + lev[v_x][v_y];
                 vis[child_x][child_y] = 1;
                 q.push({child_x,child_y});
+                ans = max(ans , lev[child_x][child_y]);
             }
         }
-        
-        
-        
-        
+
     }
+    return ans;
+    
     
     
 }
